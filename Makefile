@@ -6,30 +6,33 @@
 #    By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/10 09:53:34 by lsurco-t          #+#    #+#              #
-#    Updated: 2025/06/10 10:39:59 by lsurco-t         ###   ########.fr        #
+#    Updated: 2025/06/10 13:17:35 by lsurco-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name = push_swap
-cc = cc
+NAME = push_swap
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-libft = /libft/libft.a
-src = push_swap.c
-obj = $(src:.c=.o)
+LIBFT_DIR = ./libft
+LIBFT = libft_dir/libft.a
+SRC = push_swap.c
+OBJ = $(src:.c=.o)
 
-all: $(name)
+all: $(NAME)
 
-$(name): $(obj)
+$(NAME): $(OBJ)
 	$(cc) $(CFLAGS) -o $@ $^
 
 %.o: %.c
 	$(cc) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(obj)
+	rm -f $(OBJ)
+	rm -f -C $(OBJ)
 
 fclean: clean
-	rm -f $(name)
+	rm -f $(NAME)
+	rm -f -C $(OBJ) $(LIBFT) 
 
 re: fclean all
 
