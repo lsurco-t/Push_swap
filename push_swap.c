@@ -6,7 +6,15 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/10 09:44:45 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/10 10:35:54 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	main(int ac, char **av)
+{
+	if (ac < 2)
+		return (0);
+	
+	
+	return (0);
+}
