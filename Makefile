@@ -6,7 +6,7 @@
 #    By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/10 09:53:34 by lsurco-t          #+#    #+#              #
-#    Updated: 2025/06/10 13:17:35 by lsurco-t         ###   ########.fr        #
+#    Updated: 2025/06/11 11:34:04 by lsurco-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,25 +14,28 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
-LIBFT = libft_dir/libft.a
-SRC = push_swap.c
-OBJ = $(src:.c=.o)
+LIBFT = $(LIBFT_DIR)/libft.a
+SRC = push_swap.c push_rotate.c reverse.C
+OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJ)
-	$(cc) $(CFLAGS) -o $@ $^
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) -L$(LIBFT_DIR) -lft -o $@ $^
 
 %.o: %.c
-	$(cc) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
-	rm -f -C $(OBJ)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f -C $(OBJ) $(LIBFT) 
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
