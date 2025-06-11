@@ -6,16 +6,16 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/11 11:36:15 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/11 11:47:54 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft/libft.h"
 
 void	ft_error(void);
 void	sa(int *stack_a, int size_a);
