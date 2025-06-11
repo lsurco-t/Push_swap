@@ -6,7 +6,7 @@
 #    By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/10 09:53:34 by lsurco-t          #+#    #+#              #
-#    Updated: 2025/06/11 11:54:56 by lsurco-t         ###   ########.fr        #
+#    Updated: 2025/06/11 16:19:18 by lsurco-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) -L$(LIBFT_DIR) -lft -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBFT)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
