@@ -1,41 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_swap.c                                       :+:      :+:    :+:   */
+/*   rotate.c		                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 11:50:17 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/11 11:52:50 by lsurco-t         ###   ########.fr       */
+/*   Created: 2025/06/11 11:51:42 by lsurco-t          #+#    #+#             */
+/*   Updated: 2025/06/13 12:08:26 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(int *stack_a, int size_a)
+void	ra(int *stack_a, int size_a)
 {
+	int	i;
 	int	temp;
 
-	if (size_a < 2)
+	i = 0;
+	if (size_a <= 1)
 		return ;
 	temp = stack_a[0];
-	stack_a[0] = stack_a[1];
-	stack_a[1] = temp;
+	while (i < size_a - 1)
+	{
+		stack_a[i] = stack_a[i + 1];
+		i++;
+	}
+	stack_a[size_a - 1] = temp;
 }
 
-void	sb(int *stack_b, int size_b)
+void	rb(int *stack_b, int size_b)
 {
+	int	i;
 	int	temp;
 
-	if (size_b < 2)
+	i = 0;
+	if (size_b <= 1)
 		return ;
 	temp = stack_b[0];
-	stack_b[0] = stack_b[1];
-	stack_b[1] = temp;
+	while (1 < size_b - 1)
+	{
+		stack_b[i] = stack_b[i + 1];
+		i++;
+	}
+	stack_b[size_b - 1] = temp;
 }
 
-void	ss(int *stack_a, int *stack_b, int size_a, int size_b)
+void	rr(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	sa(stack_a, size_a);
-	sb(stack_b, size_b);
+	ra(stack_a, size_a);
+	rb(stack_b, size_b);
 }
