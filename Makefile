@@ -6,7 +6,7 @@
 #    By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/10 09:53:34 by lsurco-t          #+#    #+#              #
-#    Updated: 2025/06/16 11:15:45 by lsurco-t         ###   ########.fr        #
+#    Updated: 2025/06/16 13:39:31 by lsurco-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
-SRC = push_swap.c reverse.c push.c \
-	  rotate.c swap.c \
+SRC = sources/push_swap.c sources/reverse.c sources/push.c \
+	  sources/rotate.c sources/swap.c sources/algorithm.c\
+	  utils/error_handling.c
 OBJ = $(SRC:.c=.o)
 
 all: $(LIBFT) $(NAME)

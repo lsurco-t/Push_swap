@@ -6,11 +6,11 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 11:50:17 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/13 12:10:12 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:42:00 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sa(int *stack_a, int size_a)
 {

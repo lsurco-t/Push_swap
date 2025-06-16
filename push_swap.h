@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/13 11:23:31 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:43:26 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,9 @@ void	rr(int *stack_a, int *stack_b, int size_a, int size_b);
 void	rra(int *stack_a, int size_a);
 void	rrb(int *stack_b, int size_b);
 void	rrr(int *stack_a, int *stack_b, int size_a, int size_b);
+void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b);
+void	memory_cleanup(int *stack_a, int *stack_b);
+int		memory_allocation(int **stack_a, int **stack_b, int size_a);
+
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:36:18 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/16 12:52:07 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:41:56 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_error(void)
 {

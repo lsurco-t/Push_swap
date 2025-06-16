@@ -6,11 +6,11 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 10:53:25 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/16 13:27:22 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:42:11 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pa(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
