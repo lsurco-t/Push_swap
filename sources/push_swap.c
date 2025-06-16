@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/16 13:46:11 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:11:36 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 	int	size_b;
 	int i;
 
-	if (ac < 2 || (ac == 2 && !ft_strcmp(av[1], "")))
+	if (ac < 2)
 		ft_error();
 	size_a = ac - 1;
 	size_b = 0;
