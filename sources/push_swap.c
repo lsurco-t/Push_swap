@@ -6,17 +6,12 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/16 11:31:30 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:36:37 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
 void memory_cleanup(int *stack_a, int *stack_b)
 {
 	if (stack_a)
