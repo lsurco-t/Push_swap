@@ -38,7 +38,7 @@ void	rb(int *stack_b, int size_b)
 	if (size_b <= 1)
 		return ;
 	temp = stack_b[0];
-	while (1 < size_b - 1)
+	while (i < size_b - 1)
 	{
 		stack_b[i] = stack_b[i + 1];
 		i++;
