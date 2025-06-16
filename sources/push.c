@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 10:53:25 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/16 13:24:11 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:27:22 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	pb(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	}
 	stack_b[0] = stack_a[0];
 	(*size_b)++;
-	i = *size_a - 1;
- 	while (i > 0)
- 	{
-  		stack_a[i] = stack_a[i - 1];
- 		i--;
-	}
+	i = 0;
+ 	while (i < *size_a - 1)
+  	{
+		stack_a[i] = stack_a[i + 1];
+		i++;
+  	}
 	(*size_a)--;
 }
