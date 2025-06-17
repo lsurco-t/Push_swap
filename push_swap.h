@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/17 17:55:00 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/17 19:14:39 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
 
-void	ft_error(void);
 void	sa(int *stack_a, int size_a);
 void	sb(int *stack_b, int size_b);
 void	ss(int *stack_a, int *stack_b, int size_a, int size_b);
@@ -35,5 +34,8 @@ void	rrr(int *stack_a, int *stack_b, int size_a, int size_b);
 void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b);
 void	memory_cleanup(int *stack_a, int *stack_b);
 int		memory_allocation(int **stack_a, int **stack_b, int size_a);
+void	validate_input(int ac, char **av);
+int		is_valid_int(const char *str);
+void	ft_error(void);
 
 #endif
