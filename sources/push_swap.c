@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/17 17:57:59 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/17 19:09:52 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ int	main(int ac, char **av)
 	int	size_b;
 	int	i;
 
-	if (ac < 2)
-		ft_error();
+	validate_input(ac, av);
 	size_a = ac - 1;
 	size_b = 0;
 	memory_allocation(&stack_a, &stack_b, size_a);
