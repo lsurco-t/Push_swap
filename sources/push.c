@@ -14,46 +14,46 @@
 
 void	pa(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-	int i;
-	
+	int	i;
+
 	if (*size_b == 0)
 		return ;
 	i = *size_a;
 	while (i > 0)
- 	{
-  		stack_a[i] = stack_a[i - 1];
-  		i--;
+	{
+		stack_a[i] = stack_a[i - 1];
+		i--;
 	}
 	stack_a[0] = stack_b[0];
 	(*size_a)++;
 	i = *size_b - 1;
- 	while (i > 0)
- 	{
-  		stack_b[i] = stack_b[i - 1];
- 		i--;
+	while (i > 0)
+	{
+		stack_b[i] = stack_b[i - 1];
+		i--;
 	}
 	(*size_b)--;
 }
 
 void	pb(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-	int i;
-	
+	int	i;
+
 	if (*size_a == 0)
 		return ;
 	i = *size_b;
 	while (i > 0)
- 	{
-  		stack_b[i] = stack_b[i - 1];
-  		i--;
+	{
+		stack_b[i] = stack_b[i - 1];
+		i--;
 	}
 	stack_b[0] = stack_a[0];
 	(*size_b)++;
 	i = 0;
- 	while (i < *size_a - 1)
-  	{
+	while (i < *size_a - 1)
+	{
 		stack_a[i] = stack_a[i + 1];
 		i++;
-  	}
+	}
 	(*size_a)--;
 }
