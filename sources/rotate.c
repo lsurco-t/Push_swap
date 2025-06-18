@@ -27,6 +27,7 @@ void	ra(int *stack_a, int size_a)
 		i++;
 	}
 	stack_a[size_a - 1] = temp;
+	write(1, "ra\n", 3);
 }
 
 void	rb(int *stack_b, int size_b)
@@ -44,10 +45,12 @@ void	rb(int *stack_b, int size_b)
 		i++;
 	}
 	stack_b[size_b - 1] = temp;
+	write(1, "rb\n", 3);
 }
 
 void	rr(int *stack_a, int *stack_b, int size_a, int size_b)
 {
 	ra(stack_a, size_a);
 	rb(stack_b, size_b);
+	write(1, "rr\n", 3);
 }

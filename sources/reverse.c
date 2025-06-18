@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 10:54:30 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/16 13:42:07 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:12:23 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	rra(int *stack_a, int size_a)
 		i--;
 	}
 	stack_a[0] = temp;
+	write(1, "rra\n", 4);
 }
 
 void	rrb(int *stack_b, int size_b)
@@ -44,10 +45,12 @@ void	rrb(int *stack_b, int size_b)
 		i--;
 	}
 	stack_b[0] = temp;
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(int *stack_a, int *stack_b, int size_a, int size_b)
 {
 	rra(stack_a, size_a);
 	rrb(stack_b, size_b);
+	write(1, "rrr\n", 4);
 }
