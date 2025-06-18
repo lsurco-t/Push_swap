@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 18:52:32 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/18 20:38:56 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	main(int ac, char **av)
 	int	size_a;
 	int	size_b;
 
-	stack_a = validate_input(ac, av);
-	size_a = ac - 1;
+	stack_a = validate_input(ac, av, &size_a);
 	size_b = 0;
 	stack_b = malloc(size_a * sizeof(int));
 	if (!stack_a || !stack_b)

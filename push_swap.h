@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 19:01:43 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/18 20:36:21 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b);
 void	memory_cleanup(int *stack_a, int *stack_b);
 
 // Validation functions
-int		*validate_input(int ac, char **av);
+int		*validate_input(int ac, char **av, int *out_count);
 int		is_valid_int(const char *str);
 int		is_duplicate(int *stack, int size, int nbr);
 
