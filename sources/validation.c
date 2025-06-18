@@ -48,21 +48,20 @@ int	is_duplicate(int *stack, int size, int nbr)
 	return (0);
 }
 
-char **parse_args(int ac, char **av, int *count)
+char	**parse_args(int ac, char **av, int *count)
 {
 	char	**array_nb;
 	int		i;
 
-	if(ac == 2)
+	if (ac == 2)
 	{
 		array_nb = ft_split(av[1], ' ');
 		if (!array_nb || !array_nb[0])
 			ft_error();
 		i = 0;
-		while(array_nb[i])
+		while (array_nb[i])
 			i++;
 		*count = i;
-		
 	}
 	else
 	{
@@ -77,7 +76,7 @@ void	clean_array(char **array)
 	int	i;
 
 	if (!array)
-		return;
+		return ;
 	i = 0;
 	while (array[i])
 	{
@@ -89,10 +88,10 @@ void	clean_array(char **array)
 
 int	*validate_input(int ac, char **av, int *out_count)
 {
-	int	i;
-	int	*numbers;
-	int count;
-	char **args;
+	int		i;
+	int		*numbers;
+	int		count;
+	char	**args;
 
 	args = parse_args(ac, av, &count);
 	numbers = malloc(count * sizeof(int));

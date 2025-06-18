@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 10:53:25 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 19:12:46 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/18 20:44:38 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pa(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		i--;
 	}
 	(*size_b)--;
-	stack_b[*size_b] = 0; // Clear the last element to avoid garbage value
+	stack_b[*size_b] = 0;
 	write(1, "pa\n", 3);
 }
 
@@ -58,6 +58,6 @@ void	pb(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		i++;
 	}
 	(*size_a)--;
-	stack_a[*size_a] = 0; // Clear the last element to avoid garbage value
+	stack_a[*size_a] = 0;
 	write(1, "pb\n", 3);
 }
