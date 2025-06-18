@@ -6,9 +6,11 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:15:42 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 18:51:28 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:59:23 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../push_swap.h"
 
 int	is_valid_int(const char *str)
 {
@@ -48,8 +50,8 @@ int	is_duplicate(int *stack, int size, int nbr)
 
 int	*validate_input(int ac, char **av)
 {
-	int i;
-	int *numbers;
+	int	i;
+	int	*numbers;
 
 	if (ac < 2)
 		ft_error();
@@ -66,5 +68,5 @@ int	*validate_input(int ac, char **av)
 			ft_error();
 		i++;
 	}
-	return(numbers);
+	return (numbers);
 }

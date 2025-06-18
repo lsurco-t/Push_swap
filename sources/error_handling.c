@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:36:18 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 13:15:52 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:58:57 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,3 @@ void	ft_error(void)
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
-
