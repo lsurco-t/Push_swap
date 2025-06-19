@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:15:42 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 20:35:17 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/19 06:50:56 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	is_duplicate(int *stack, int size, int nbr)
 	return (0);
 }
 
-char	**parse_args(int ac, char **av, int *count)
+char	**parse_args(int ac, char **av, int *out_count)
 {
 	char	**array_nb;
 	int		i;
@@ -61,12 +61,12 @@ char	**parse_args(int ac, char **av, int *count)
 		i = 0;
 		while (array_nb[i])
 			i++;
-		*count = i;
+		*out_count = i;
 	}
 	else
 	{
 		array_nb = av + 1;
-		*count = ac - 1;
+		*out_count = ac - 1;
 	}
 	return (array_nb);
 }

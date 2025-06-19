@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 20:45:59 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/19 06:51:05 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		*validate_input(int ac, char **av, int *out_count);
 int		is_valid_int(const char *str);
 int		is_duplicate(int *stack, int size, int nbr);
 void	clean_array(char **array);
-char	**parse_args(int ac, char **av, int *count);
+char	**parse_args(int ac, char **av, int *out_count);
 
 // Error handling
 void	ft_error(void);
