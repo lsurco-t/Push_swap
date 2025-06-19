@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:15:42 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/19 06:58:58 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/19 14:24:24 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,27 @@ int	is_valid_int(const char *str)
 {
 	long	num;
 	int		i;
+	int 	sign;
 
 	i = 0;
+	sign = 1;
+	num = 0;
 	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
 		i++;
+	}
 	if (str[i] == '\0')
 		return (1);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (1);
-		i++;
+		num = num * 10 + (str[i++] - '0');
 	}
-	num = ft_atoi(str);
-	if (num > 2147483647 || num < -2147483648)
+	num = num * sign;
+	if (num < -2147483648 || num > 2147483647)
 		return (1);
 	return (0);
 }
@@ -65,7 +72,7 @@ char	**parse_args(int ac, char **av, int *out_count)
 	}
 	else
 	{
-		array_nb = av + 1; //check this why + 1
+		array_nb = av + 1;
 		*out_count = ac - 1;
 	}
 	return (array_nb);
