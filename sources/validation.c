@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:15:42 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/19 06:50:56 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/19 06:58:58 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**parse_args(int ac, char **av, int *out_count)
 	}
 	else
 	{
-		array_nb = av + 1;
+		array_nb = av + 1; //check this why + 1
 		*out_count = ac - 1;
 	}
 	return (array_nb);
