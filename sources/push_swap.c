@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/18 20:38:56 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/20 20:28:58 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int	main(int ac, char **av)
 		ft_error();
 	}
 	algorithm(stack_a, stack_b, size_a, size_b);
+	int i = 0;
+	while(i < size_a)
+	{
+		ft_printf("%d\n", stack_a[i]);
+		i++;
+	}
 	memory_cleanup(stack_a, stack_b);
 	return (0);
 }

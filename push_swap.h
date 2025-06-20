@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/19 06:51:05 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/20 20:28:43 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
+#include <stdio.h> // For debugging purposes, can be removed later
 
 # define EXIT_FAILURE 1
 
@@ -47,5 +48,16 @@ char	**parse_args(int ac, char **av, int *out_count);
 
 // Error handling
 void	ft_error(void);
+
+// Sorting functions
+int		find_min_pos(int *stack, int size);
+void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
+void	sort_four_to_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
+void	large_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
+
+// Additional sorting functions (to be implemented)
+// void	sort_six_to_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
+// void	sort_hundred_to_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
 
 #endif
