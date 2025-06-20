@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 20:28:43 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/20 23:25:22 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ char	**parse_args(int ac, char **av, int *out_count);
 
 // Error handling
 void	ft_error(void);
+void	clean_array(char **array);
+void	clean_array_exit(char **array, int *numbers);
 
 // Sorting functions
 int		find_min_pos(int *stack, int size);

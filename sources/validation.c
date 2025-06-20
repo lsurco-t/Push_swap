@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:15:42 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/19 14:24:24 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/20 23:26:08 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,21 +78,6 @@ char	**parse_args(int ac, char **av, int *out_count)
 	return (array_nb);
 }
 
-void	clean_array(char **array)
-{
-	int	i;
-
-	if (!array)
-		return ;
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-}
-
 int	*validate_input(int ac, char **av, int *out_count)
 {
 	int		i;
@@ -101,17 +86,19 @@ int	*validate_input(int ac, char **av, int *out_count)
 	char	**args;
 
 	args = parse_args(ac, av, &count);
+	if (count == 0)
+    	clean_array_exit(args, NULL);
 	numbers = malloc(count * sizeof(int));
 	if (!numbers)
-		ft_error();
+		clean_array_exit(args, NULL);
 	i = 0;
 	while (i < count)
 	{
 		if (is_valid_int(args[i]))
-			ft_error();
+			clean_array_exit(args, numbers);
 		numbers[i] = ft_atoi(args[i]);
 		if (is_duplicate(numbers, i, numbers[i]))
-			ft_error();
+			clean_array_exit(args, numbers);
 		i++;
 	}
 	if (ac == 2)
