@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 20:34:06 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/20 20:46:59 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,52 +30,53 @@ void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b)
 		sa(stack_a, size_a);
 		rra(stack_a, size_a);
 	}
-	else if (stack_a[0] < stack_a[1] && stack_a[1] > stack_a[2])
-	{
-		rra(stack_a, size_a);
-		sa(stack_a, size_a);
-	}
-	else if (stack_a[0] < stack_a[1] && stack_a[1] < stack_a[2])
-		rra(stack_a, size_a);
-	else if (stack_a[0] > stack_a[1] && stack_a[1] < stack_a[2])
+	else if (stack_a[0] > stack_a[1] && stack_a[1] < stack_a[2]	&& stack_a[0] > stack_a[2])
 		ra(stack_a, size_a);
+	else if (stack_a[0] < stack_a[1] && stack_a[1] > stack_a[2]	&& stack_a[0] < stack_a[2])
+	{
+		sa(stack_a, size_a);
+		ra(stack_a, size_a);
+	}
+	else if (stack_a[0] < stack_a[1] && stack_a[1] > stack_a[2]
+		&& stack_a[0] > stack_a[2])
+		rra(stack_a, size_a);
 }
 
 void	sort_four_to_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-	int min_pos;
-	int r;
+	int	min_pos;
+	int	r;
 
 	while (*size_a > 3)
 	{
-		 min_pos = find_min_pos(stack_a, *size_a);
-        if (min_pos == 0)
-            pb(stack_a, stack_b, size_a, size_b);
-        else if (min_pos <= *size_a / 2)
-        {
-            while (min_pos-- > 0)
-                ra(stack_a, *size_a);
-            pb(stack_a, stack_b, size_a, size_b);
-        }
-        else
-        {
+		min_pos = find_min_pos(stack_a, *size_a);
+		if (min_pos == 0)
+			pb(stack_a, stack_b, size_a, size_b);
+		else if (min_pos <= *size_a / 2)
+		{
+			while (min_pos-- > 0)
+				ra(stack_a, *size_a);
+			pb(stack_a, stack_b, size_a, size_b);
+		}
+		else
+		{
 			r = *size_a - min_pos;
-            while (r-- > 0)
-                rra(stack_a, *size_a);
-            pb(stack_a, stack_b, size_a, size_b);
-        }
-    }
-    sort_three(stack_a, stack_b, *size_a, *size_b);
-    while (*size_b > 0)
-        pa(stack_a, stack_b, size_a, size_b);
+			while (r-- > 0)
+				rra(stack_a, *size_a);
+			pb(stack_a, stack_b, size_a, size_b);
+		}
+	}
+	sort_three(stack_a, stack_b, *size_a, *size_b);
+	while (*size_b > 0)
+		pa(stack_a, stack_b, size_a, size_b);
 }
 
 /*void	sort_six_to_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	
 }
 
-void	sort_hundred_to_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
+void	sort_hundred_to_five_hundred(int *stack_a, int *stack_b, int size_a,
+		int size_b)
 {
 	// Implement sorting logic for one hundred to five hundred elements
 }*/
