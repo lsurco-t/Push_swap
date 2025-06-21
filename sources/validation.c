@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:15:42 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 23:26:08 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/21 11:08:55 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**parse_args(int ac, char **av, int *out_count)
 	{
 		array_nb = ft_split(av[1], ' ');
 		if (!array_nb || !array_nb[0])
-			ft_error();
+			clean_array_exit(array_nb, NULL);
 		i = 0;
 		while (array_nb[i])
 			i++;
