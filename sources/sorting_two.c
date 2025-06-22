@@ -6,19 +6,22 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:36:26 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 12:57:43 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 13:20:39 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate_a_top(int *stack, int size, int pos)
+void	rotate_stack_top(int *stack, int size, int pos, char stack_id)
 {
 	if (pos <= size / 2)
 	{
 		while (pos > 0)
 		{
-			ra(stack, size);
+			if (stack_id == 'a')
+				ra(stack, size);
+			else
+				rb(stack, size);
 			pos--;
 		}
 	}
@@ -26,30 +29,56 @@ void	rotate_a_top(int *stack, int size, int pos)
 	{
 		while (pos < size)
 		{
-			rra(stack, size);
+			if (stack_id == 'a')
+				rra(stack, size);
+			else
+				rrb(stack, size);
 			pos++;
 		}
 	}
 }
 
-void	rotate_b_top(int *stack, int size, int pos)
+int	*ft_sort_int_tab(int *tab, int size)
 {
-	if (pos <= size / 2)
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (i < size - 1)
 	{
-		while (pos > 0)
+		j = i + 1;
+		while (j < size)
 		{
-			rb(stack, size);
-			pos--;
+			if (tab[i] > tab[j])
+			{
+				temp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = temp;
+			}
+			j++;
 		}
+		i++;
 	}
-	else
+	return (tab);
+}
+
+int	*copy_and_sort(int *stack, int size)
+{
+	int	*copy;
+	int	i;
+
+	copy = malloc(size * sizeof(int));
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (i < size)
 	{
-		while (pos < size)
-		{
-			rrb(stack, size);
-			pos++;
-		}
+		copy[i] = stack[i];
+		i++;
 	}
+	ft_sort_int_tab(copy, size);
+	return (copy);
 }
 
 int	find_closest_chunk_member(int *stack, int size, int min, int max)

@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 12:58:09 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 13:23:31 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	clean_array_exit(char **array, int *numbers);
 int		find_min_pos(int *stack, int size);
 int		find_max_pos(int *stack, int size);
 int		cost_sort(int *stack, int size, int pos);
-void	rotate_a_top(int *stack, int size, int pos);
-void	rotate_b_top(int *stack, int size, int pos);
+void	rotate_stack_top(int *stack, int size, int pos, char stack_id);
 int		find_closest_chunk_member(int *stack, int size, int min, int max);
 int		has_chunk_member(int *stack, int size, int min, int max);
-
+int		*ft_sort_int_tab(int *tab, int size);
+int		*copy_and_sort(int *stack, int size);
 
 // Chunk sorting functions
 void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
