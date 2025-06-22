@@ -6,42 +6,87 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 20:33:12 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:49:57 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static void	push_one_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b, t_chunk chunk)
+{
+    int	count;
+
+    count = 0;
+    while (count < *size_a)
+    {
+        if (stack_a[0] >= chunk.min && stack_a[0] <= chunk.max)
+        {
+            pb(stack_a, stack_b, size_a, size_b);
+            break;
+        }
+        else
+            ra(stack_a, *size_a);
+        count++;
+    }
+}
 void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
+	int		*sorted;
+    int		chunk_size;
+    int		i;
+    int		pushed;
+    t_chunk	chunk;
+
+    sorted = copy_and_sort(stack_a, *size_a);
+    chunk_size = *size_a / 5;
+    i = 0;
+    while (i < 5)
+    {
+        chunk.min = sorted[i * chunk_size];
+        if (i == 4)
+            chunk.max = sorted[*size_a - 1];
+        else
+            chunk.max = sorted[(i + 1) * chunk_size - 1];
+        pushed = 0;
+        while (pushed < chunk_size && *size_a > 0)
+        {
+            push_one_chunk(stack_a, stack_b, size_a, size_b, chunk);
+            pushed++;
+        }
+        i++;
+    }
+    free(sorted);
 }
 
 void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
+	int		*sorted;
+    int		chunk_size;
+    int		i;
+    int		pushed;
+    t_chunk	chunk;
+
+    sorted = copy_and_sort(stack_a, *size_a);
+    chunk_size = *size_a / 20;
+    i = 0;
+    while (i < 20)
+    {
+        chunk.min = sorted[i * chunk_size];
+        if (i == 19)
+            chunk.max = sorted[*size_a - 1];
+        else
+            chunk.max = sorted[(i + 1) * chunk_size - 1];
+        pushed = 0;
+        while (pushed < chunk_size && *size_a > 0)
+        {
+            push_one_chunk(stack_a, stack_b, size_a, size_b, chunk);
+            pushed++;
+        }
+        i++;
+    }
+    free(sorted);
 }
 
-int	best_move(t_move *moves, int size)
-{
-	int	i;
-	int	best_index;
-	int	best_cost;
-
-	if (size == 0)
-		return (-1);
-	best_index = 0;
-	best_cost = moves[0].total_cost;
-	i = 1;
-	while (i < size)
-	{
-		if (moves[i].total_cost < best_cost)
-		{
-			best_cost = moves[i].total_cost;
-			best_index = i;
-		}
-		i++;
-	}
-	return (best_index);
-}
 
 int	find_min_pos(int *stack, int size)
 {

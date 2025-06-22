@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:59:43 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 21:31:11 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:46:07 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,28 @@ int	insert_position(int *stack, int size, int value)
 	if (pos == size)
 		pos = 0;
 	return (pos);
+}
+int	best_move(t_move *moves, int size)
+{
+	int	i;
+	int	best_index;
+	int	best_cost;
+
+	if (size == 0)
+		return (-1);
+	best_index = 0;
+	best_cost = moves[0].total_cost;
+	i = 1;
+	while (i < size)
+	{
+		if (moves[i].total_cost < best_cost)
+		{
+			best_cost = moves[i].total_cost;
+			best_index = i;
+		}
+		i++;
+	}
+	return (best_index);
 }
 
 static void	update_best_move(t_move *best, t_move *candidate)

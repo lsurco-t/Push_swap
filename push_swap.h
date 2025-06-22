@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 21:31:49 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:48:49 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef struct s_move
 	int	cost_b;
 	int	total_cost;
 }	t_move;
+
+typedef struct s_chunk
+{
+    int min;
+    int max;
+}	t_chunk;
 
 // Push_swap operations
 void	sa(int *stack_a, int size_a);
