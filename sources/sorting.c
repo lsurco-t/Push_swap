@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 21:49:57 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:51:23 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
     }
     free(sorted);
 }
-
 
 int	find_min_pos(int *stack, int size)
 {
