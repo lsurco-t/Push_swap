@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 12:46:17 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 18:44:20 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,68 @@
 
 void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
 {
+	int	chunk_size;
+	int	*sorted;
+	int	i;
+	int	min;
+	int	max;
+	int	pos;
+
+	sorted = copy_and_sort(stack_a, size_a);
+	chunk_size = size_a / 10;
+	i = 0;
+	while (i < 10)
+	{
+		min = sorted[i * chunk_size];
+		if (i == 9)
+			max = sorted[size_a - 1];
+		else
+			max = sorted[(i + 1) * chunk_size - 1];
+		while (has_chunk_member(stack_a, size_a, min, max))
+		{
+			pos = find_closest_chunk_member(stack_a, size_a, min, max);
+			if (pos != -1)
+			{
+				rotate_stack_top(stack_a, size_a, pos, 'a');
+				pb(stack_a, stack_b, &size_a, &size_b);
+			}
+		}
+		i++;
+	}
+	free(sorted);
 }
 
 void	large_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
 {
+	int	chunk_size;
+	int	*sorted;
+	int	i;
+	int	min;
+	int	max;
+	int	pos;
+
+	sorted = copy_and_sort(stack_a, size_a);
+	chunk_size = size_a / 10;
+	i = 0;
+	while (i < 10)
+	{
+		min = sorted[i * chunk_size];
+		if (i == 9)
+			max = sorted[size_a - 1];
+		else
+			max = sorted[(i + 1) * chunk_size - 1];
+		while (has_chunk_member(stack_a, size_a, min, max))
+		{
+			pos = find_closest_chunk_member(stack_a, size_a, min, max);
+			if (pos != -1)
+			{
+				rotate_stack_top(stack_a, size_a, pos, 'a');
+				pb(stack_a, stack_b, &size_a, &size_b);
+			}
+		}
+		i++;
+	}
+	free(sorted);
 }
 
 int	cost_sort(int *stack, int size, int pos)

@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 17:57:26 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 18:40:44 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,28 @@ void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
 
 void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
+	int	max_pos;
+
+	small_chunk(stack_a, stack_b, size_a, size_b);
+	while (size_b > 0)
+	{
+		max_pos = find_max_pos(stack_b, size_b);
+		rotate_stack_top(stack_b, size_b, max_pos, 'b');
+		pa(stack_a, stack_b, &size_a, &size_b);
+	}
 }
 
 void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
+	int	max_pos;
+
+	large_chunk(stack_a, stack_b, size_a, size_b);
+	while (size_b > 0)
+	{
+		max_pos = find_max_pos(stack_b, size_b);
+		rotate_stack_top(stack_b, size_b, max_pos, 'b');
+		pa(stack_a, stack_b, &size_a, &size_b);
+	}
 }
 
 void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b)
@@ -80,15 +98,9 @@ void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b)
 	else if (size_a == 4 || size_a == 5)
 		sort_four_to_five(stack_a, stack_b, &size_a, &size_b);
 	else if (size_a > 5 && size_a <= 100)
-	{
-		small_chunk(stack_a, stack_b, size_a, size_b);
 		sort_hundred(stack_a, stack_b, size_a, size_b);
-	}
 	else if (size_a > 100 && size_a <= 500)
-	{
-		large_chunk(stack_a, stack_b, size_a, size_b);
 		sort_five_hundred(stack_a, stack_b, size_a, size_b);
-	}
 	else
 		ft_error();
 }
