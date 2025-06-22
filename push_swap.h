@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 11:53:15 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 12:43:27 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	rrr(int *stack_a, int *stack_b, int size_a, int size_b);
 
 // Sorting algorithm
 void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b);
+void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
+void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
+void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
 
 // Memory management
 void	memory_cleanup(int *stack_a, int *stack_b);
@@ -53,10 +57,12 @@ void	clean_array_exit(char **array, int *numbers);
 
 // Sorting functions
 int		find_min_pos(int *stack, int size);
-void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
-void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
-void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
-void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
+int		find_max_pos(int *stack, int size);
+int		cost_sort(int *stack, int size, int pos);
+void	rotate_to_top(int *stack, int size, int pos);
+int		find_closest_chunk_member(int *stack, int size, int min, int max);
+int		has_chunk_member(int *stack, int size, int min, int max);
+
 
 // Chunk sorting functions
 void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
