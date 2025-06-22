@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 18:46:54 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 19:06:44 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
 	int	max_pos;
 
-	small_chunk(stack_a, stack_b, size_a, size_b);
+	small_chunk(stack_a, stack_b, &size_a, &size_b);
 	while (size_b > 0)
 	{
 		max_pos = find_max_pos(stack_b, size_b);
@@ -78,7 +78,7 @@ void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
 	int	max_pos;
 
-	large_chunk(stack_a, stack_b, size_a, size_b);
+	large_chunk(stack_a, stack_b, &size_a, &size_b);
 	while (size_b > 0)
 	{
 		max_pos = find_max_pos(stack_b, size_b);

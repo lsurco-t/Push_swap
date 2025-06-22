@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 18:49:28 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 19:05:02 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	clean_array(char **array);
 void	clean_array_exit(char **array, int *numbers);
 
 // Sorting functions
-void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
-void	large_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
+void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b);
 int		find_min_pos(int *stack, int size);
 int		find_max_pos(int *stack, int size);
 int		cost_sort(int size, int pos);

@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 19:03:41 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 19:11:29 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	int	pos;
 
 	sorted = copy_and_sort(stack_a, *size_a);
-	chunk_size = *size_a / 10;
+	chunk_size = *size_a / 5;
 	i = 0;
-	while (i < 10)
+	while (i < 5)
 	{
 		min = sorted[i * chunk_size];
-		if (i == 9)
+		if (i == 4)
 			max = sorted[*size_a - 1];
 		else
 			max = sorted[(i + 1) * chunk_size - 1];
