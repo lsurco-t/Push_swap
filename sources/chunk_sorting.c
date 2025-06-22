@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 23:02:07 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 23:15:25 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,16 @@ static void push_one_chunk(t_stacks *stacks, t_chunk chunk)
 
     forward_index = find_forward_index(stacks->a, *(stacks->size_a), chunk.min, chunk.max);
     backward_index = find_backward_index(stacks->a, *(stacks->size_a), chunk.min, chunk.max);
-    if (forward_index > 0)
+    if (forward_index == -1 && backward_index == -1)
+        return; 
+    if (forward_index != -1 && (backward_index == -1 || forward_index <= backward_index))
     {
         while (forward_index-- > 0)
             ra(stacks->a, *(stacks->size_a));
     }
-    else if (backward_index < 0)
+    else if (backward_index != -1)
     {
-        while (backward_index++ < 0)
+        while (backward_index-- > 0)
             rra(stacks->a, *(stacks->size_a));
     }
     pb(stacks->a, stacks->b, stacks->size_a, stacks->size_b);
@@ -69,12 +71,12 @@ void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 
 	stacks = (t_stacks){stack_a, stack_b, size_a, size_b};
     sorted = copy_and_sort(stack_a, *size_a);
-    chunk_size = *size_a / 8;
+    chunk_size = *size_a / 5;
     i = 0;
-    while (i < 8)
+    while (i < 5)
     {
         chunk.min = sorted[i * chunk_size];
-        if (i == 7)
+        if (i == 4)
             chunk.max = sorted[*size_a - 1];
         else
             chunk.max = sorted[(i + 1) * chunk_size - 1];

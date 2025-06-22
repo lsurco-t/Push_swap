@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:59:43 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 23:04:18 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 23:24:36 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,24 @@
 
 int	insert_position(int *stack, int size, int value)
 {
-	int	i;
-	int	pos;
-	int	diff;
-	int	min_diff;
+    int	i;
+    int	max_pos;
+    int	next;
 
-	i = 0;
-	pos = 0;
-	min_diff = 2147483647;
-	while (i < size)
-	{
-		diff = stack[i] - value;
-		if (diff > 0 && diff < min_diff)
-		{
-			min_diff = diff;
-			pos = i;
-		}
-		i++;
-	}
-	if (min_diff == 2147483647)
-		pos = find_max_pos(stack, size) + 1;
-	if (pos == size)
-		pos = 0;
-	return (pos);
+    max_pos = find_max_pos(stack, size);
+    if (value > stack[max_pos] || value < stack[(max_pos + 1) % size])
+        return ((max_pos + 1) % size);
+    i = 0;
+    while (i < size)
+    {
+        next = (i + 1) % size;
+        if (stack[i] < value && value < stack[next])
+            return (next);
+        i++;
+    }
+    return (0);
 }
+
 int	best_move(t_move *moves, int size)
 {
 	int	i;
