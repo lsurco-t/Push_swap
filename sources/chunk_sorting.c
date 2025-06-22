@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 23:15:25 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 23:41:04 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,18 @@ void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 
 	stacks = (t_stacks){stack_a, stack_b, size_a, size_b};
     sorted = copy_and_sort(stack_a, *size_a);
-    chunk_size = *size_a / 5;
-    i = 0;
-    while (i < 5)
+    chunk_size = *size_a / 8;
+    i = 7;
+    while (i >= 0)
     {
         chunk.min = sorted[i * chunk_size];
-        if (i == 4)
+        if (i == 7)
             chunk.max = sorted[*size_a - 1];
         else
             chunk.max = sorted[(i + 1) * chunk_size - 1];
         while (has_chunk_number(stack_a, *size_a, chunk.min, chunk.max))
-    		push_one_chunk(&stacks, chunk);
-        i++;
+            push_one_chunk(&stacks, chunk);
+        i--;
     }
     free(sorted);
 }
@@ -98,8 +98,8 @@ void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	stacks = (t_stacks){stack_a, stack_b, size_a, size_b};
     sorted = copy_and_sort(stack_a, *size_a);
     chunk_size = *size_a / 20;
-    i = 0;
-    while (i < 20)
+    i = 19;
+    while (i >= 0)
     {
         chunk.min = sorted[i * chunk_size];
         if (i == 19)
@@ -108,7 +108,7 @@ void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
             chunk.max = sorted[(i + 1) * chunk_size - 1];
         while (has_chunk_number(stack_a, *size_a, chunk.min, chunk.max))
             push_one_chunk(&stacks, chunk);
-        i++;
+        i--;
     }
     free(sorted);
 }
