@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 23:25:22 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 11:53:15 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ void	clean_array_exit(char **array, int *numbers);
 // Sorting functions
 int		find_min_pos(int *stack, int size);
 void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
-void	sort_four_to_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
+void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
+
+// Chunk sorting functions
 void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
 void	large_chunk(int *stack_a, int *stack_b, int size_a, int size_b);
-
-// Additional sorting functions (to be implemented)
-// void	sort_six_to_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
-// void	sort_hundred_to_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
 
 #endif

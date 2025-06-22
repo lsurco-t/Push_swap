@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 23:09:15 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 11:57:48 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b)
 	}
 }
 
-void	sort_four_to_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
+void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	int	min_pos;
 	int	r;
@@ -61,15 +61,15 @@ void	sort_four_to_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		pa(stack_a, stack_b, size_a, size_b);
 }
 
-/*void	sort_six_to_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
+void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
+	
 }
 
-void	sort_hundred_to_five_hundred(int *stack_a, int *stack_b, int size_a,
-		int size_b)
+void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	// Implement sorting logic for one hundred to five hundred elements
-}*/
+	
+}
 void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b)
 {
 	if (size_a <= 0)
@@ -80,10 +80,10 @@ void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b)
 		sort_three(stack_a, stack_b, size_a, size_b);
 	else if (size_a == 4 || size_a == 5)
 		sort_four_to_five(stack_a, stack_b, &size_a, &size_b);
-	/*else if (size_a > 5 && size_a <= 100)
+	else if (size_a > 5 && size_a <= 100)
 		sort_six_to_hundred(stack_a, stack_b, size_a, size_b);
 	else if (size_a > 100 && size_a <= 500)
-		sort_hundred_to_five_hundred(stack_a, stack_b, size_a, size_b);*/
+		sort_hundred_to_five_hundred(stack_a, stack_b, size_a, size_b);
 	else
 		ft_error();
 }

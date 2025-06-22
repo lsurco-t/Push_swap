@@ -6,23 +6,21 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 20:21:55 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 11:53:58 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
+void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
 {
 	
 }
 
 void	large_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	// Implement logic for sorting large chunks of the stack
-	// This function will handle the case when the stack size is large
-	// and will use a more complex sorting algorithm.
-}*/
+	
+}
 
 int	find_min_pos(int *stack, int size)
 {
