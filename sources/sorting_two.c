@@ -6,13 +6,13 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:36:26 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 12:46:56 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 12:57:43 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate_to_top(int *stack, int size, int pos)
+void	rotate_a_top(int *stack, int size, int pos)
 {
 	if (pos <= size / 2)
 	{
@@ -27,6 +27,26 @@ void	rotate_to_top(int *stack, int size, int pos)
 		while (pos < size)
 		{
 			rra(stack, size);
+			pos++;
+		}
+	}
+}
+
+void	rotate_b_top(int *stack, int size, int pos)
+{
+	if (pos <= size / 2)
+	{
+		while (pos > 0)
+		{
+			rb(stack, size);
+			pos--;
+		}
+	}
+	else
+	{
+		while (pos < size)
+		{
+			rrb(stack, size);
 			pos++;
 		}
 	}
