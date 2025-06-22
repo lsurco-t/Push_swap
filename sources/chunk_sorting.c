@@ -1,31 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   chunk_sorting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 22:48:32 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 23:02:07 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static int	find_forward_index(int *stack, int size, int min, int max)
+{
+    int	i;
+
+    i = 0;
+    while (i < size)
+    {
+        if (stack[i] >= min && stack[i] <= max)
+            return (i);
+        i++;
+    }
+    return (-1);
+}
+
+static int	find_backward_index(int *stack, int size, int min, int max)
+{
+    int	i;
+
+    i = size - 1;
+    while (i >= 0)
+    {
+        if (stack[i] >= min && stack[i] <= max)
+            return (size - i);
+        i--;
+    }
+    return (-1);
+}
+
 static void push_one_chunk(t_stacks *stacks, t_chunk chunk)
 {
-    int count = 0;
-    while (count < *(stacks->size_a))
+    int forward_index;
+    int backward_index;
+
+    forward_index = find_forward_index(stacks->a, *(stacks->size_a), chunk.min, chunk.max);
+    backward_index = find_backward_index(stacks->a, *(stacks->size_a), chunk.min, chunk.max);
+    if (forward_index > 0)
     {
-        if (stacks->a[0] >= chunk.min && stacks->a[0] <= chunk.max)
-        {
-            pb(stacks->a, stacks->b, stacks->size_a, stacks->size_b);
-            break;
-        }
-        else
+        while (forward_index-- > 0)
             ra(stacks->a, *(stacks->size_a));
-        count++;
     }
+    else if (backward_index < 0)
+    {
+        while (backward_index++ < 0)
+            rra(stacks->a, *(stacks->size_a));
+    }
+    pb(stacks->a, stacks->b, stacks->size_a, stacks->size_b);
 }
 void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
@@ -79,44 +111,3 @@ void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
     free(sorted);
 }
 
-int	find_min_pos(int *stack, int size)
-{
-	int	i;
-	int	min;
-	int	min_pos;
-
-	min = stack[0];
-	min_pos = 0;
-	i = 1;
-	while (i < size)
-	{
-		if (stack[i] < min)
-		{
-			min = stack[i];
-			min_pos = i;
-		}
-		i++;
-	}
-	return (min_pos);
-}
-
-int	find_max_pos(int *stack, int size)
-{
-	int	i;
-	int	max;
-	int	max_pos;
-
-	max = stack[0];
-	max_pos = 0;
-	i = 1;
-	while (i < size)
-	{
-		if (stack[i] > max)
-		{
-			max = stack[i];
-			max_pos = i;
-		}
-		i++;
-	}
-	return (max_pos);
-}

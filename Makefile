@@ -6,7 +6,7 @@
 #    By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/10 09:53:34 by lsurco-t          #+#    #+#              #
-#    Updated: 2025/06/22 21:57:45 by lsurco-t         ###   ########.fr        #
+#    Updated: 2025/06/22 23:05:35 by lsurco-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 SRC = sources/push_swap.c sources/reverse.c sources/push.c \
 	  sources/rotate.c sources/swap.c sources/algorithm.c \
-	  sources/error_handling.c sources/validation.c sources/sorting.c \
-	  sources/sorting_two.c sources/sorting_three.c \
+	  sources/error_handling.c sources/validation.c sources/chunk_sorting.c \
+	  sources/sorting_utils_two.c sources/best_move.c sources/sorting_utils.c \
 
 OBJ = $(SRC:.c=.o)
 
