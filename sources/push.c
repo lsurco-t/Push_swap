@@ -29,8 +29,8 @@ void	pa(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	i = 0;
 	while (i < *size_b - 1)
 	{
-    	stack_b[i] = stack_b[i + 1];
-   		i++;
+		stack_b[i] = stack_b[i + 1];
+		i++;
 	}
 	(*size_b)--;
 	write(1, "pa\n", 3);

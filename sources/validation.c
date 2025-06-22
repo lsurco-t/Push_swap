@@ -16,7 +16,7 @@ int	is_valid_int(const char *str)
 {
 	long	num;
 	int		i;
-	int 	sign;
+	int		sign;
 
 	i = 0;
 	sign = 1;
@@ -87,7 +87,7 @@ int	*validate_input(int ac, char **av, int *out_count)
 
 	args = parse_args(ac, av, &count);
 	if (count == 0)
-    	clean_array_exit(args, NULL);
+		clean_array_exit(args, NULL);
 	numbers = malloc(count * sizeof(int));
 	if (!numbers)
 		clean_array_exit(args, NULL);

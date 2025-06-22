@@ -14,7 +14,6 @@
 
 void	small_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	
 }
 
 void	large_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
