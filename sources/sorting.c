@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 19:11:29 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 19:52:54 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,37 @@
 
 void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-	int	chunk_size;
-	int	*sorted;
-	int	i;
-	int	min;
-	int	max;
-	int	pos;
+	 int	chunk_size;
+    int	*sorted;
+    int	i;
+    int	min;
+    int	max;
+    int	pos;
 
-	sorted = copy_and_sort(stack_a, *size_a);
-	chunk_size = *size_a / 5;
-	i = 0;
-	while (i < 5)
-	{
-		min = sorted[i * chunk_size];
-		if (i == 4)
-			max = sorted[*size_a - 1];
-		else
-			max = sorted[(i + 1) * chunk_size - 1];
-		while (has_chunk_member(stack_a, *size_a, min, max))
-		{
-			pos = find_closest_chunk_member(stack_a, *size_a, min, max);
-			if (pos != -1)
-			{
-				rotate_stack_top(stack_a, *size_a, pos, 'a');
-				pb(stack_a, stack_b, size_a, size_b);
-			}
-		}
-		i++;
-	}
-	free(sorted);
+    sorted = copy_and_sort(stack_a, *size_a);
+    chunk_size = *size_a / 8;
+    i = 0;
+    while (i < 8)
+    {
+        min = sorted[i * chunk_size];
+        if (i == 7)
+            max = sorted[*size_a - 1];
+        else
+            max = sorted[(i + 1) * chunk_size - 1];
+        while (has_chunk_member(stack_a, *size_a, min, max))
+        {
+            pos = find_closest_chunk_member(stack_a, *size_a, min, max);
+            if (pos != -1)
+            {
+                rotate_stack_top(stack_a, *size_a, pos, 'a');
+                pb(stack_a, stack_b, size_a, size_b);
+            }
+        }
+        i++;
+    }
+    while (*size_a > 0)
+        pb(stack_a, stack_b, size_a, size_b);
+    free(sorted);
 }
 
 void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
@@ -55,12 +57,12 @@ void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	int	pos;
 
 	sorted = copy_and_sort(stack_a, *size_a);
-	chunk_size = *size_a / 20;
+	chunk_size = *size_a / 25;
 	i = 0;
-	while (i < 20)
+	while (i < 25)
 	{
 		min = sorted[i * chunk_size];
-		if (i == 19)
+		if (i == 24)
 			max = sorted[*size_a - 1];
 		else
 			max = sorted[(i + 1) * chunk_size - 1];
