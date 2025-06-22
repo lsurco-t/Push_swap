@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:36:26 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 13:20:39 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 18:52:23 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	find_closest_chunk_member(int *stack, int size, int min, int max)
 	{
 		if (stack[i] >= min && stack[i] <= max)
 		{
-			cost = cost_sort(size, i, stack[i]);
+			cost = cost_sort(size, i);
 			if (cost < best_cost)
 			{
 				best_cost = cost;

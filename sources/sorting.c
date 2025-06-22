@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 18:44:20 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 18:48:53 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	large_chunk(int *stack_a, int *stack_b, int size_a, int size_b)
 	free(sorted);
 }
 
-int	cost_sort(int *stack, int size, int pos)
+int	cost_sort(int size, int pos)
 {
 	if (pos <= size / 2)
 		return (pos);
