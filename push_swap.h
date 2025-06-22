@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 21:56:40 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 22:45:12 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ typedef struct s_chunk
     int max;
 }	t_chunk;
 
+typedef struct s_stacks
+{
+    int *a;
+    int *b;
+    int *size_a;
+    int *size_b;
+}   t_stacks;
+
 // Push_swap operations
 void	sa(int *stack_a, int size_a);
 void	sb(int *stack_b, int size_b);
@@ -47,11 +55,11 @@ void	rrb(int *stack_b, int size_b);
 void	rrr(int *stack_a, int *stack_b, int size_a, int size_b);
 
 // Sorting algorithm
-void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b);
+void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
 void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
-void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
-void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b);
+void	sort_hundred(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	sort_five_hundred(int *stack_a, int *stack_b, int *size_a, int *size_b);
 
 // Validation functions
 int		*validate_input(int ac, char **av, int *out_count);

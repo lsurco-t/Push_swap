@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 21:40:17 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 22:31:50 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,72 +61,87 @@ void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		pa(stack_a, stack_b, size_a, size_b);
 }
 
-void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
+void	sort_hundred(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	t_move	best_move;
 
-	small_chunk(stack_a, stack_b, &size_a, &size_b);
-	while (size_b > 0)
+	small_chunk(stack_a, stack_b, size_a, size_b);
+	while (*size_b > 0)
 	{
-		best_move = find_best_move(stack_a, stack_b, size_a, size_b);
+		best_move = find_best_move(stack_a, stack_b, *size_a, *size_b);
 		while (best_move.cost_a > 0 && best_move.cost_b > 0)
 		{
-			rr(stack_a, stack_b, size_a, size_b);
+			rr(stack_a, stack_b, *size_a, *size_b);
 			best_move.cost_a--;
 			best_move.cost_b--;
 		}
 		while (best_move.cost_a < 0 && best_move.cost_b < 0)
 		{
-			rrr(stack_a, stack_b, size_a, size_b);
+			rrr(stack_a, stack_b, *size_a, *size_b);
 			best_move.cost_a++;
 			best_move.cost_b++;
 		}
-		rotate_stack_top(stack_a, size_a, best_move.cost_a, 'a');
-		rotate_stack_top(stack_b, size_b, best_move.cost_b, 'b');
-		pa(stack_a, stack_b, &size_a, &size_b);
+		rotate_stack_top(stack_a, *size_a, best_move.cost_a, 'a');
+		rotate_stack_top(stack_b, *size_b, best_move.cost_b, 'b');
+		pa(stack_a, stack_b, size_a, size_b);
 	}
 }
 
-void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
+void	sort_five_hundred(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	t_move	best_move;
 
-	large_chunk(stack_a, stack_b, &size_a, &size_b);
-	while (size_b > 0)
+	large_chunk(stack_a, stack_b, size_a, size_b);
+	while (*size_b > 0)
 	{
-		best_move = find_best_move(stack_a, stack_b, size_a, size_b);
+		best_move = find_best_move(stack_a, stack_b, *size_a, *size_b);
 		while (best_move.cost_a > 0 && best_move.cost_b > 0)
 		{
-			rr(stack_a, stack_b, size_a, size_b);
+			rr(stack_a, stack_b, *size_a, *size_b);
 			best_move.cost_a--;
 			best_move.cost_b--;
 		}
 		while (best_move.cost_a < 0 && best_move.cost_b < 0)
 		{
-			rrr(stack_a, stack_b, size_a, size_b);
+			rrr(stack_a, stack_b, *size_a, *size_b);
 			best_move.cost_a++;
 			best_move.cost_b++;
 		}
-		rotate_stack_top(stack_a, size_a, best_move.cost_a, 'a');
-		rotate_stack_top(stack_b, size_b, best_move.cost_b, 'b');
-		pa(stack_a, stack_b, &size_a, &size_b);
+		rotate_stack_top(stack_a, *size_a, best_move.cost_a, 'a');
+		rotate_stack_top(stack_b, *size_b, best_move.cost_b, 'b');
+		pa(stack_a, stack_b, size_a, size_b);
 	}
 }
 
-void	algorithm(int *stack_a, int *stack_b, int size_a, int size_b)
+void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-	if (size_a <= 0)
+	int	min_pos;
+	int	r;
+
+	if (*size_a <= 0)
 		ft_error();
-	else if (size_a == 1)
+	else if (*size_a == 1)
 		return ;
-	else if (size_a == 2 || size_a == 3)
-		sort_three(stack_a, stack_b, size_a, size_b);
-	else if (size_a == 4 || size_a == 5)
-		sort_five(stack_a, stack_b, &size_a, &size_b);
-	else if (size_a > 5 && size_a <= 100)
+	else if (*size_a == 2 || *size_a == 3)
+		sort_three(stack_a, stack_b, *size_a, *size_b);
+	else if (*size_a == 4 || *size_a == 5)
+		sort_five(stack_a, stack_b, size_a, size_b);
+	else if (*size_a > 5 && *size_a <= 100)
 		sort_hundred(stack_a, stack_b, size_a, size_b);
-	else if (size_a > 100 && size_a <= 500)
+	else if (*size_a > 100 && *size_a <= 500)
 		sort_five_hundred(stack_a, stack_b, size_a, size_b);
 	else
 		ft_error();
+	min_pos = find_min_pos(stack_a, *size_a);
+	if (min_pos <= *size_a / 2)
+	{
+		while (min_pos-- > 0)
+			ra(stack_a, *size_a);
+	}
+	else
+	{
+		r = *size_a - min_pos;
+		while (r-- > 0)
+			rra(stack_a, *size_a);
+	}
 }

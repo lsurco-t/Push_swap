@@ -6,26 +6,24 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 21:51:23 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 22:48:32 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	push_one_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b, t_chunk chunk)
+static void push_one_chunk(t_stacks *stacks, t_chunk chunk)
 {
-    int	count;
-
-    count = 0;
-    while (count < *size_a)
+    int count = 0;
+    while (count < *(stacks->size_a))
     {
-        if (stack_a[0] >= chunk.min && stack_a[0] <= chunk.max)
+        if (stacks->a[0] >= chunk.min && stacks->a[0] <= chunk.max)
         {
-            pb(stack_a, stack_b, size_a, size_b);
+            pb(stacks->a, stacks->b, stacks->size_a, stacks->size_b);
             break;
         }
         else
-            ra(stack_a, *size_a);
+            ra(stacks->a, *(stacks->size_a));
         count++;
     }
 }
@@ -34,25 +32,22 @@ void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	int		*sorted;
     int		chunk_size;
     int		i;
-    int		pushed;
     t_chunk	chunk;
+	t_stacks stacks;
 
+	stacks = (t_stacks){stack_a, stack_b, size_a, size_b};
     sorted = copy_and_sort(stack_a, *size_a);
-    chunk_size = *size_a / 5;
+    chunk_size = *size_a / 8;
     i = 0;
-    while (i < 5)
+    while (i < 8)
     {
         chunk.min = sorted[i * chunk_size];
-        if (i == 4)
+        if (i == 7)
             chunk.max = sorted[*size_a - 1];
         else
             chunk.max = sorted[(i + 1) * chunk_size - 1];
-        pushed = 0;
-        while (pushed < chunk_size && *size_a > 0)
-        {
-            push_one_chunk(stack_a, stack_b, size_a, size_b, chunk);
-            pushed++;
-        }
+        while (has_chunk_number(stack_a, *size_a, chunk.min, chunk.max))
+    		push_one_chunk(&stacks, chunk);
         i++;
     }
     free(sorted);
@@ -63,9 +58,10 @@ void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	int		*sorted;
     int		chunk_size;
     int		i;
-    int		pushed;
     t_chunk	chunk;
+	t_stacks stacks;
 
+	stacks = (t_stacks){stack_a, stack_b, size_a, size_b};
     sorted = copy_and_sort(stack_a, *size_a);
     chunk_size = *size_a / 20;
     i = 0;
@@ -76,12 +72,8 @@ void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
             chunk.max = sorted[*size_a - 1];
         else
             chunk.max = sorted[(i + 1) * chunk_size - 1];
-        pushed = 0;
-        while (pushed < chunk_size && *size_a > 0)
-        {
-            push_one_chunk(stack_a, stack_b, size_a, size_b, chunk);
-            pushed++;
-        }
+        while (has_chunk_number(stack_a, *size_a, chunk.min, chunk.max))
+            push_one_chunk(&stacks, chunk);
         i++;
     }
     free(sorted);
