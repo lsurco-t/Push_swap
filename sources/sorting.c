@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:52:32 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 19:52:54 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 20:33:12 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,78 +14,33 @@
 
 void	small_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-	 int	chunk_size;
-    int	*sorted;
-    int	i;
-    int	min;
-    int	max;
-    int	pos;
-
-    sorted = copy_and_sort(stack_a, *size_a);
-    chunk_size = *size_a / 8;
-    i = 0;
-    while (i < 8)
-    {
-        min = sorted[i * chunk_size];
-        if (i == 7)
-            max = sorted[*size_a - 1];
-        else
-            max = sorted[(i + 1) * chunk_size - 1];
-        while (has_chunk_member(stack_a, *size_a, min, max))
-        {
-            pos = find_closest_chunk_member(stack_a, *size_a, min, max);
-            if (pos != -1)
-            {
-                rotate_stack_top(stack_a, *size_a, pos, 'a');
-                pb(stack_a, stack_b, size_a, size_b);
-            }
-        }
-        i++;
-    }
-    while (*size_a > 0)
-        pb(stack_a, stack_b, size_a, size_b);
-    free(sorted);
 }
 
 void	large_chunk(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-	int	chunk_size;
-	int	*sorted;
-	int	i;
-	int	min;
-	int	max;
-	int	pos;
+}
 
-	sorted = copy_and_sort(stack_a, *size_a);
-	chunk_size = *size_a / 25;
-	i = 0;
-	while (i < 25)
+int	best_move(t_move *moves, int size)
+{
+	int	i;
+	int	best_index;
+	int	best_cost;
+
+	if (size == 0)
+		return (-1);
+	best_index = 0;
+	best_cost = moves[0].total_cost;
+	i = 1;
+	while (i < size)
 	{
-		min = sorted[i * chunk_size];
-		if (i == 24)
-			max = sorted[*size_a - 1];
-		else
-			max = sorted[(i + 1) * chunk_size - 1];
-		while (has_chunk_member(stack_a, *size_a, min, max))
+		if (moves[i].total_cost < best_cost)
 		{
-			pos = find_closest_chunk_member(stack_a, *size_a, min, max);
-			if (pos != -1)
-			{
-				rotate_stack_top(stack_a, *size_a, pos, 'a');
-				pb(stack_a, stack_b, size_a, size_b);
-			}
+			best_cost = moves[i].total_cost;
+			best_index = i;
 		}
 		i++;
 	}
-	free(sorted);
-}
-
-int	cost_sort(int size, int pos)
-{
-	if (pos <= size / 2)
-		return (pos);
-	else
-		return (size - pos);
+	return (best_index);
 }
 
 int	find_min_pos(int *stack, int size)

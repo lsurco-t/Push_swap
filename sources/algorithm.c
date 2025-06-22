@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 19:06:44 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:40:17 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,52 @@ void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
 
 void	sort_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	int	max_pos;
+	t_move	best_move;
 
 	small_chunk(stack_a, stack_b, &size_a, &size_b);
 	while (size_b > 0)
 	{
-		max_pos = find_max_pos(stack_b, size_b);
-		rotate_stack_top(stack_b, size_b, max_pos, 'b');
+		best_move = find_best_move(stack_a, stack_b, size_a, size_b);
+		while (best_move.cost_a > 0 && best_move.cost_b > 0)
+		{
+			rr(stack_a, stack_b, size_a, size_b);
+			best_move.cost_a--;
+			best_move.cost_b--;
+		}
+		while (best_move.cost_a < 0 && best_move.cost_b < 0)
+		{
+			rrr(stack_a, stack_b, size_a, size_b);
+			best_move.cost_a++;
+			best_move.cost_b++;
+		}
+		rotate_stack_top(stack_a, size_a, best_move.cost_a, 'a');
+		rotate_stack_top(stack_b, size_b, best_move.cost_b, 'b');
 		pa(stack_a, stack_b, &size_a, &size_b);
 	}
 }
 
 void	sort_five_hundred(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	int	max_pos;
+	t_move	best_move;
 
 	large_chunk(stack_a, stack_b, &size_a, &size_b);
 	while (size_b > 0)
 	{
-		max_pos = find_max_pos(stack_b, size_b);
-		rotate_stack_top(stack_b, size_b, max_pos, 'b');
+		best_move = find_best_move(stack_a, stack_b, size_a, size_b);
+		while (best_move.cost_a > 0 && best_move.cost_b > 0)
+		{
+			rr(stack_a, stack_b, size_a, size_b);
+			best_move.cost_a--;
+			best_move.cost_b--;
+		}
+		while (best_move.cost_a < 0 && best_move.cost_b < 0)
+		{
+			rrr(stack_a, stack_b, size_a, size_b);
+			best_move.cost_a++;
+			best_move.cost_b++;
+		}
+		rotate_stack_top(stack_a, size_a, best_move.cost_a, 'a');
+		rotate_stack_top(stack_b, size_b, best_move.cost_b, 'b');
 		pa(stack_a, stack_b, &size_a, &size_b);
 	}
 }
