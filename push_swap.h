@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 21:48:49 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:56:40 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ int		*copy_and_sort(int *stack, int size);
 
 int		insert_position(int *stack, int size, int value);
 t_move	find_best_move(int *stack_a, int *stack_b, int size_a, int size_b);
+
 
 #endif
