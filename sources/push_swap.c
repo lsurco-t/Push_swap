@@ -6,19 +6,11 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 20:28:58 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 13:25:01 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	memory_cleanup(int *stack_a, int *stack_b)
-{
-	if (stack_a)
-		free(stack_a);
-	if (stack_b)
-		free(stack_b);
-}
 
 int	main(int ac, char **av)
 {

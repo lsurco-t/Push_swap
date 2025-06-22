@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:36:18 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/20 23:24:11 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/22 13:25:24 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
+}
+
+void	memory_cleanup(int *stack_a, int *stack_b)
+{
+	if (stack_a)
+		free(stack_a);
+	if (stack_b)
+		free(stack_b);
 }
 void	clean_array_exit(char **array, int *numbers)
 {
