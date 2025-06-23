@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 12:51:30 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 16:09:55 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	rrr(int *stack_a, int *stack_b, int size_a, int size_b);
 
 // Sorting algorithm
 void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	final_rotation(int *stack_a, int size_a);
 void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
 void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b);
@@ -50,7 +51,6 @@ void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b);
 int		*validate_input(int ac, char **av, int *out_count);
 int		is_valid_int(const char *str);
 int		is_duplicate(int *stack, int size, int nbr);
-void	clean_array(char **array);
 char	**parse_args(int ac, char **av, int *out_count);
 
 // Error handling
@@ -63,7 +63,6 @@ void	exit_with_cleanup(int ac, char **args, int *numbers);
 // Sorting functions
 int		find_min_pos(int *stack, int size);
 int		find_max_pos(int *stack, int size);
-
 int		cost_sort(int size, int pos);
 void	rotate_stack_top(int *stack, int size, int pos, char stack_id);
 int		is_stack_sorted(int *stack, int size);
