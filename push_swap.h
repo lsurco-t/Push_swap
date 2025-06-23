@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 12:15:47 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:51:30 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,6 @@ typedef struct s_move
 	int	cost_b;
 	int	total_cost;
 }		t_move;
-
-typedef struct s_chunk
-{
-	int	min;
-	int	max;
-}		t_chunk;
-
-typedef struct s_stacks
-{
-	int	*a;
-	int	*b;
-	int	*size_a;
-	int	*size_b;
-}		t_stacks;
 
 // Push_swap operations
 void	sa(int *stack_a, int size_a);
@@ -77,11 +63,9 @@ void	exit_with_cleanup(int ac, char **args, int *numbers);
 // Sorting functions
 int		find_min_pos(int *stack, int size);
 int		find_max_pos(int *stack, int size);
-int		cost_sort(int size, int pos);
 
+int		cost_sort(int size, int pos);
 void	rotate_stack_top(int *stack, int size, int pos, char stack_id);
-int		*ft_sort_int_tab(int *tab, int size);
-int		*copy_and_sort(int *stack, int size);
 int		is_stack_sorted(int *stack, int size);
 
 int		insert_position(int *stack, int size, int value);
