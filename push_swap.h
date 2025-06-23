@@ -13,9 +13,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft/libft.h"
 # define EXIT_FAILURE 1
 
 typedef struct s_move
@@ -25,21 +25,21 @@ typedef struct s_move
 	int	cost_a;
 	int	cost_b;
 	int	total_cost;
-}	t_move;
+}		t_move;
 
 typedef struct s_chunk
 {
-    int min;
-    int max;
-}	t_chunk;
+	int	min;
+	int	max;
+}		t_chunk;
 
 typedef struct s_stacks
 {
-    int *a;
-    int *b;
-    int *size_a;
-    int *size_b;
-}   t_stacks;
+	int	*a;
+	int	*b;
+	int	*size_a;
+	int	*size_b;
+}		t_stacks;
 
 // Push_swap operations
 void	sa(int *stack_a, int size_a);
@@ -82,7 +82,7 @@ int		cost_sort(int size, int pos);
 void	rotate_stack_top(int *stack, int size, int pos, char stack_id);
 int		*ft_sort_int_tab(int *tab, int size);
 int		*copy_and_sort(int *stack, int size);
-int     is_stack_sorted(int *stack, int size);
+int		is_stack_sorted(int *stack, int size);
 
 int		insert_position(int *stack, int size, int value);
 t_move	find_best_move(int *stack_a, int *stack_b, int size_a, int size_b);
