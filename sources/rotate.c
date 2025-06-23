@@ -50,7 +50,29 @@ void	rb(int *stack_b, int size_b)
 
 void	rr(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-	ra(stack_a, size_a);
-	rb(stack_b, size_b);
-	write(1, "rr\n", 3);
+    int	i, temp;
+
+    if (size_a > 1)
+    {
+        temp = stack_a[0];
+        i = 0;
+        while (i < size_a - 1)
+        {
+            stack_a[i] = stack_a[i + 1];
+            i++;
+        }
+        stack_a[size_a - 1] = temp;
+    } 
+    if (size_b > 1)
+    {
+        temp = stack_b[0];
+        i = 0;
+        while (i < size_b - 1)
+        {
+            stack_b[i] = stack_b[i + 1];
+            i++;
+        }
+        stack_b[size_b - 1] = temp;
+    }
+    write(1, "rr\n", 3);
 }

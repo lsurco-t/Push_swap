@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:36:26 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 23:05:11 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 08:50:00 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,22 +79,6 @@ int	*copy_and_sort(int *stack, int size)
 	}
 	ft_sort_int_tab(copy, size);
 	return (copy);
-}
-
-int	has_chunk_number(int *stack, int size, int min, int max)
-{
-	int	i;
-
-	if (size == 0)
-		return (0);
-	i = 0;
-	while (i < size)
-	{
-		if (stack[i] >= min && stack[i] <= max)
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 int	cost_sort(int size, int pos)

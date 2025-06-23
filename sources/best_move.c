@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:59:43 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 23:24:36 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 10:45:20 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,30 @@
 int	insert_position(int *stack, int size, int value)
 {
     int	i;
-    int	max_pos;
-    int	next;
+    int	pos = 0;
+    int	max_pos = find_max_pos(stack, size);
+    int	min_pos = find_min_pos(stack, size);
 
-    max_pos = find_max_pos(stack, size);
-    if (value > stack[max_pos] || value < stack[(max_pos + 1) % size])
+    // If value is outside current range, insert after max
+    if (value > stack[max_pos] || value < stack[min_pos])
         return ((max_pos + 1) % size);
-    i = 0;
-    while (i < size)
+
+    // Find the position where value should be inserted
+    // Look for the smallest element that is greater than value
+    int found = 0;
+    int closest_bigger = 2147483647;
+    
+    for (i = 0; i < size; i++)
     {
-        next = (i + 1) % size;
-        if (stack[i] < value && value < stack[next])
-            return (next);
-        i++;
+        if (stack[i] > value && stack[i] < closest_bigger)
+        {
+            closest_bigger = stack[i];
+            pos = i;
+            found = 1;
+        }
     }
-    return (0);
+    
+    return (found ? pos : 0);
 }
 
 int	best_move(t_move *moves, int size)

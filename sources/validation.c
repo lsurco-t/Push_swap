@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:15:42 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 20:24:37 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 08:29:08 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,18 @@ int	*validate_input(int ac, char **av, int *out_count)
 
 	args = parse_args(ac, av, &count);
 	if (count == 0)
-		clean_array_exit(args, NULL);
+		exit_with_cleanup(ac, args, NULL);
 	numbers = malloc(count * sizeof(int));
 	if (!numbers)
-		clean_array_exit(args, NULL);
+		exit_with_cleanup(ac, args, NULL);
 	i = 0;
 	while (i < count)
 	{
 		if (is_valid_int(args[i]))
-			clean_array_exit(args, numbers);
+			exit_with_cleanup(ac, args, numbers);
 		numbers[i] = ft_atoi(args[i]);
 		if (is_duplicate(numbers, i, numbers[i]))
-			clean_array_exit(args, numbers);
+			exit_with_cleanup(ac, args, numbers);
 		i++;
 	}
 	if (ac == 2)

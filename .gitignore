@@ -6,3 +6,4 @@ a.out
 *.so
 *.a
 .vscode
+chunk_sorting.c
