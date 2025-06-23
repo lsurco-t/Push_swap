@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:36:26 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 08:50:00 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 11:46:30 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate_stack_top(int *stack, int size, int cost, char stack_id)
 {
-	if (cost)
+	if (cost > 0)
 	{
 		while (cost > 0)
 		{

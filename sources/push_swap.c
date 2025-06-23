@@ -6,23 +6,11 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 11:08:36 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/22 22:15:06 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 11:12:07 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static int	is_sorted(int *stack, int size)
-{
-    int	i = 0;
-    while (i < size - 1)
-    {
-        if (stack[i] > stack[i + 1])
-            return (0);
-        i++;
-    }
-    return (1);
-}
 
 int	main(int ac, char **av)
 {
@@ -41,11 +29,6 @@ int	main(int ac, char **av)
 		ft_error();
 	}
 	algorithm(stack_a, stack_b, &size_a, &size_b);
-	if (is_sorted(stack_a, size_a))
-        ft_printf("Stack A is sorted!\n");
-    else
-        ft_printf("Stack A is NOT sorted!\n");
-
     i = 0;
     while (i < size_a)
     {

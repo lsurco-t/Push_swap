@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 10:55:21 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 11:28:39 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,72 +63,79 @@ void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b)
 
 void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-    t_move best_move;
+	t_move	best_move;
 
-    while (*size_a > 3)
-        pb(stack_a, stack_b, size_a, size_b);
-    sort_three(stack_a, stack_b, *size_a, *size_b);
-    while (*size_b > 0)
-    {
-        best_move = find_best_move(stack_a, stack_b, *size_a, *size_b);
-        while (best_move.cost_a > 0 && best_move.cost_b > 0)
-        {
-            rr(stack_a, stack_b, *size_a, *size_b);
-            best_move.cost_a--;
-            best_move.cost_b--;
-        }
-        while (best_move.cost_a < 0 && best_move.cost_b < 0)
-        {
-            rrr(stack_a, stack_b, *size_a, *size_b);
-            best_move.cost_a++;
-            best_move.cost_b++;
-        }
-        rotate_stack_top(stack_a, *size_a, best_move.cost_a, 'a');
-        rotate_stack_top(stack_b, *size_b, best_move.cost_b, 'b');
-        pa(stack_a, stack_b, size_a, size_b);
-    }
+	while (*size_a > 3)
+		pb(stack_a, stack_b, size_a, size_b);
+	sort_three(stack_a, stack_b, *size_a, *size_b);
+	while (*size_b > 0)
+	{
+		best_move = find_best_move(stack_a, stack_b, *size_a, *size_b);
+		while (best_move.cost_a > 0 && best_move.cost_b > 0)
+		{
+			rr(stack_a, stack_b, *size_a, *size_b);
+			best_move.cost_a--;
+			best_move.cost_b--;
+		}
+		while (best_move.cost_a < 0 && best_move.cost_b < 0)
+		{
+			rrr(stack_a, stack_b, *size_a, *size_b);
+			best_move.cost_a++;
+			best_move.cost_b++;
+		}
+		rotate_stack_top(stack_a, *size_a, best_move.cost_a, 'a');
+		rotate_stack_top(stack_b, *size_b, best_move.cost_b, 'b');
+		pa(stack_a, stack_b, size_a, size_b);
+	}
 }
 void	final_rotation(int *stack_a, int size_a)
 {
-    int	min_pos = find_min_pos(stack_a, size_a);
-    int	r;
+	int	min_pos;
+	int	r;
 
-    if (min_pos <= size_a / 2)
-    {
-        while (min_pos-- > 0)
-            ra(stack_a, size_a);
-    }
-    else
-    {
-        r = size_a - min_pos;
-        while (r-- > 0)
-            rra(stack_a, size_a);
-    }
+	min_pos = find_min_pos(stack_a, size_a);
+	if (min_pos == 0)
+		return ;
+	if (min_pos <= size_a / 2)
+	{
+		while (min_pos-- > 0)
+			ra(stack_a, size_a);
+	}
+	else
+	{
+		r = size_a - min_pos;
+		while (r-- > 0)
+			rra(stack_a, size_a);
+	}
 }
 int	is_stack_sorted(int *stack, int size)
 {
-    int	i = 0;
-    while (i < size - 1)
-    {
-        if (stack[i] > stack[i + 1])
-            return (0);
-        i++;
-    }
-    return (1);
+	int	i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (stack[i] > stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }
 void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	if (*size_a <= 0)
-        ft_error();
-    else if (*size_a == 1 || is_stack_sorted(stack_a, *size_a))
-        return ;
-    else if (*size_a == 2 || *size_a == 3)
-        sort_three(stack_a, stack_b, *size_a, *size_b);
-    else if (*size_a == 4 || *size_a == 5)
-        sort_five(stack_a, stack_b, size_a, size_b);
-    else if (*size_a > 5 && *size_a <= 100)
-        greedy_sort(stack_a, stack_b, size_a, size_b);
-    else
-        ft_error();
-	final_rotation(stack_a, *size_a);
+		ft_error();
+	else if (*size_a == 1 || is_stack_sorted(stack_a, *size_a))
+		return ;
+	else if (*size_a == 2 || *size_a == 3)
+		sort_three(stack_a, stack_b, *size_a, *size_b);
+	else if (*size_a == 4 || *size_a == 5)
+		sort_five(stack_a, stack_b, size_a, size_b);
+	else if (*size_a > 5)
+	{
+		greedy_sort(stack_a, stack_b, size_a, size_b);
+		final_rotation(stack_a, *size_a);
+	}
+	else
+		ft_error();
 }
