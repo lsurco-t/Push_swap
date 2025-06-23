@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:36:26 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 11:46:30 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:04:34 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,18 @@ int	cost_sort(int size, int pos)
 		return (pos);
 	else
 		return (pos - size);
+}
+
+int	is_stack_sorted(int *stack, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (stack[i] > stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

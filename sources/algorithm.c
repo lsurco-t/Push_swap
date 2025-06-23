@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 11:28:39 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:04:19 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		pa(stack_a, stack_b, size_a, size_b);
 	}
 }
+
 void	final_rotation(int *stack_a, int size_a)
 {
 	int	min_pos;
@@ -108,19 +109,7 @@ void	final_rotation(int *stack_a, int size_a)
 			rra(stack_a, size_a);
 	}
 }
-int	is_stack_sorted(int *stack, int size)
-{
-	int	i;
 
-	i = 0;
-	while (i < size - 1)
-	{
-		if (stack[i] > stack[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
 void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	if (*size_a <= 0)

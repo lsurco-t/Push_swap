@@ -14,26 +14,30 @@
 
 int	insert_position(int *stack, int size, int value)
 {
-    int	i;
-    int	max_pos = find_max_pos(stack, size);
-    int	min_pos = find_min_pos(stack, size);
+	int	i;
+	int	max_pos;
+	int	min_pos;
+	int	found;
+	int	closest_bigger;
+	int	target_pos;
 
-    if (value > stack[max_pos] || value < stack[min_pos])
-        return ((max_pos + 1) % size);
-    int found = 0;
-    int closest_bigger = 2147483647;
-    int target_pos = 0;
-    
-    for (i = 0; i < size; i++)
-    {
-        if (stack[i] > value && stack[i] < closest_bigger)
-        {
-            closest_bigger = stack[i];
-            target_pos = i;
-            found = 1;
-        }
-    }
-    return (found ? target_pos : 0);
+	max_pos = find_max_pos(stack, size);
+	min_pos = find_min_pos(stack, size);
+	if (value > stack[max_pos] || value < stack[min_pos])
+		return ((max_pos + 1) % size);
+	found = 0;
+	closest_bigger = 2147483647;
+	target_pos = 0;
+	for (i = 0; i < size; i++)
+	{
+		if (stack[i] > value && stack[i] < closest_bigger)
+		{
+			closest_bigger = stack[i];
+			target_pos = i;
+			found = 1;
+		}
+	}
+	return (found ? target_pos : 0);
 }
 
 int	best_move(t_move *moves, int size)

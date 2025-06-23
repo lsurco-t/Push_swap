@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:36:18 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 08:27:48 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:02:39 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	clean_array(char **array)
 		free(array[i++]);
 	free(array);
 }
+
 void	exit_with_cleanup(int ac, char **args, int *numbers)
 {
 	if (ac == 2)
