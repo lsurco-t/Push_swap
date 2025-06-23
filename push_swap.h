@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 12:04:50 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:15:47 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# include <stdio.h> // For debugging purposes, can be removed later
 # define EXIT_FAILURE 1
 
 typedef struct s_move
@@ -81,7 +80,6 @@ int		find_max_pos(int *stack, int size);
 int		cost_sort(int size, int pos);
 
 void	rotate_stack_top(int *stack, int size, int pos, char stack_id);
-int		best_move(t_move *moves, int size);
 int		*ft_sort_int_tab(int *tab, int size);
 int		*copy_and_sort(int *stack, int size);
 int     is_stack_sorted(int *stack, int size);
