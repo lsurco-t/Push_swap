@@ -38,19 +38,19 @@ void	sb(int *stack_b, int size_b)
 
 void	ss(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-    int	temp;
+	int	temp;
 
-    if (size_a >= 2)
-    {
-        temp = stack_a[0];
-        stack_a[0] = stack_a[1];
-        stack_a[1] = temp;
-    }
-    if (size_b >= 2)
-    {
-        temp = stack_b[0];
-        stack_b[0] = stack_b[1];
-        stack_b[1] = temp;
-    }
-    write(1, "ss\n", 3);
+	if (size_a >= 2)
+	{
+		temp = stack_a[0];
+		stack_a[0] = stack_a[1];
+		stack_a[1] = temp;
+	}
+	if (size_b >= 2)
+	{
+		temp = stack_b[0];
+		stack_b[0] = stack_b[1];
+		stack_b[1] = temp;
+	}
+	write(1, "ss\n", 3);
 }

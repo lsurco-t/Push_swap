@@ -55,11 +55,12 @@ void	clean_array(char **array)
 }
 void	exit_with_cleanup(int ac, char **args, int *numbers)
 {
-    if (ac == 2)
-        clean_array_exit(args, numbers);
-    else {
-        if (numbers)
-            free(numbers);
-        ft_error();
-    }
+	if (ac == 2)
+		clean_array_exit(args, numbers);
+	else
+	{
+		if (numbers)
+			free(numbers);
+		ft_error();
+	}
 }

@@ -29,12 +29,12 @@ int	main(int ac, char **av)
 		ft_error();
 	}
 	algorithm(stack_a, stack_b, &size_a, &size_b);
-    i = 0;
-    while (i < size_a)
-    {
-        ft_printf("%d\n", stack_a[i]);
-        i++;
-    }
+	i = 0;
+	while (i < size_a)
+	{
+		ft_printf("%d\n", stack_a[i]);
+		i++;
+	}
 	memory_cleanup(stack_a, stack_b);
 	return (0);
 }
