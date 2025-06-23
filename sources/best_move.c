@@ -6,61 +6,48 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:59:43 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 11:48:43 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:13:43 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	insert_position(int *stack, int size, int value)
+static int	find_closest_bigger(int *stack, int size, int value)
 {
 	int	i;
+	int	closest;
+	int	pos;
+	int	found;
+
+	i = 0;
+	found = 0;
+	closest = 2147483647;
+	pos = 0;
+	while (i < size)
+	{
+		if (stack[i] > value && stack[i] < closest)
+		{
+			closest = stack[i];
+			pos = i;
+			found = 1;
+		}
+		i++;
+	}
+	if (found)
+		return (pos);
+	return (0);
+}
+
+int	insert_position(int *stack, int size, int value)
+{
 	int	max_pos;
 	int	min_pos;
-	int	found;
-	int	closest_bigger;
-	int	target_pos;
 
 	max_pos = find_max_pos(stack, size);
 	min_pos = find_min_pos(stack, size);
 	if (value > stack[max_pos] || value < stack[min_pos])
 		return ((max_pos + 1) % size);
-	found = 0;
-	closest_bigger = 2147483647;
-	target_pos = 0;
-	for (i = 0; i < size; i++)
-	{
-		if (stack[i] > value && stack[i] < closest_bigger)
-		{
-			closest_bigger = stack[i];
-			target_pos = i;
-			found = 1;
-		}
-	}
-	return (found ? target_pos : 0);
-}
-
-int	best_move(t_move *moves, int size)
-{
-	int	i;
-	int	best_index;
-	int	best_cost;
-
-	if (size == 0)
-		return (-1);
-	best_index = 0;
-	best_cost = moves[0].total_cost;
-	i = 1;
-	while (i < size)
-	{
-		if (moves[i].total_cost < best_cost)
-		{
-			best_cost = moves[i].total_cost;
-			best_index = i;
-		}
-		i++;
-	}
-	return (best_index);
+	return (find_closest_bigger(stack, size, value));
 }
 
 static void	update_best_move(t_move *best, t_move *candidate)
