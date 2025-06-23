@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:59:43 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 10:45:20 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/23 11:00:57 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,3 @@ t_move	find_best_move(int *stack_a, int *stack_b, int size_a, int size_b)
 	}
 	return (best);
 }
-
-
-
