@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/25 23:10:47 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/26 00:05:04 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	rrr(int *stack_a, int *stack_b, int size_a, int size_b);
 
 // Sorting algorithm
 void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b);
-void	final_rotation(int *stack_a, int size_a);
 void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
 void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b);
@@ -63,12 +62,13 @@ void	exit_with_cleanup(int ac, char **args, int *numbers);
 // Sorting functions
 int		find_min_pos(int *stack, int size);
 int		find_max_pos(int *stack, int size);
-int		cost_sort(int size, int pos);
+void	final_rotation(int *stack_a, int size_a);
 void	rotate_stack_top(int *stack, int size, int pos, char stack_id);
 int		is_stack_sorted(int *stack, int size);
 
 int		insert_position(int *stack, int size, int value);
 t_move	find_best_move(int *stack_a, int *stack_b, int size_a, int size_b);
+int		cost_sort(int size, int pos);
 
 // Median optimization
 int		find_median(int *stack, int size);
