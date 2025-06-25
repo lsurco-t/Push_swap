@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:59:43 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 12:13:43 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/25 18:56:07 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ static void	update_best_move(t_move *best, t_move *candidate)
 	if ((candidate->cost_a >= 0 && candidate->cost_b >= 0)
 		|| (candidate->cost_a < 0 && candidate->cost_b < 0))
 	{
-		if (abs(candidate->cost_a) > abs(candidate->cost_b))
-			total_cost = abs(candidate->cost_a);
+		if (ft_abs(candidate->cost_a) > ft_abs(candidate->cost_b))
+			total_cost = ft_abs(candidate->cost_a);
 		else
-			total_cost = abs(candidate->cost_b);
+			total_cost = ft_abs(candidate->cost_b);
 	}
 	else
-		total_cost = abs(candidate->cost_a) + abs(candidate->cost_b);
+		total_cost = ft_abs(candidate->cost_a) + ft_abs(candidate->cost_b);
 	if (total_cost < best->total_cost)
 	{
 		best->a_index = candidate->a_index;
