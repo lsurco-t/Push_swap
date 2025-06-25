@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 23:01:53 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 13:41:40 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/25 23:50:05 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,6 @@ void	rotate_stack_top(int *stack, int size, int cost, char stack_id)
 	}
 }
 
-int	cost_sort(int size, int pos)
-{
-	if (pos <= size / 2)
-		return (pos);
-	else
-		return (pos - size);
-}
-
 int	is_stack_sorted(int *stack, int size)
 {
 	int	i;
@@ -100,4 +92,25 @@ int	is_stack_sorted(int *stack, int size)
 		i++;
 	}
 	return (1);
+}
+
+void	final_rotation(int *stack_a, int size_a)
+{
+	int	min_pos;
+	int	r;
+
+	min_pos = find_min_pos(stack_a, size_a);
+	if (min_pos == 0)
+		return ;
+	if (min_pos <= size_a / 2)
+	{
+		while (min_pos-- > 0)
+			ra(stack_a, size_a);
+	}
+	else
+	{
+		r = size_a - min_pos;
+		while (r-- > 0)
+			rra(stack_a, size_a);
+	}
 }

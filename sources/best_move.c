@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:59:43 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/25 18:56:07 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/25 23:47:43 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,14 @@ static void	update_best_move(t_move *best, t_move *candidate)
 		best->cost_b = candidate->cost_b;
 		best->total_cost = total_cost;
 	}
+}
+
+int	cost_sort(int size, int pos)
+{
+	if (pos <= size / 2)
+		return (pos);
+	else
+		return (pos - size);
 }
 
 t_move	find_best_move(int *stack_a, int *stack_b, int size_a, int size_b)
