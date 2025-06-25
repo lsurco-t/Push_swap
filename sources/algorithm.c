@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 12:04:19 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/25 23:10:14 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,13 @@ void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	t_move	best_move;
 
-	while (*size_a > 3)
-		pb(stack_a, stack_b, size_a, size_b);
+	if (*size_a > 100)
+		optimized_push(stack_a, stack_b, size_a, size_b);
+	else
+	{
+		while (*size_a > 3)
+			pb(stack_a, stack_b, size_a, size_b);
+	}
 	sort_three(stack_a, stack_b, *size_a, *size_b);
 	while (*size_b > 0)
 	{

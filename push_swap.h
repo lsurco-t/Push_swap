@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/23 16:09:55 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/25 23:10:47 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,9 @@ int		is_stack_sorted(int *stack, int size);
 
 int		insert_position(int *stack, int size, int value);
 t_move	find_best_move(int *stack_a, int *stack_b, int size_a, int size_b);
+
+// Median optimization
+int		find_median(int *stack, int size);
+void	optimized_push(int *stack_a, int *stack_b, int *size_a, int *size_b);
 
 #endif

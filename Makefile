@@ -6,7 +6,7 @@
 #    By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/10 09:53:34 by lsurco-t          #+#    #+#              #
-#    Updated: 2025/06/23 16:03:32 by lsurco-t         ###   ########.fr        #
+#    Updated: 2025/06/25 23:12:43 by lsurco-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = sources/push_swap.c sources/reverse.c sources/push.c \
 	  sources/rotate.c sources/swap.c sources/algorithm.c \
 	  sources/error_handling.c sources/validation.c \
 	  sources/best_move.c sources/sorting_utils.c \
+	  sources/median.c \
 
 OBJ = $(SRC:.c=.o)
 
