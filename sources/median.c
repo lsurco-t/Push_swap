@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 23:10:28 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/25 23:18:27 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/25 23:35:30 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,28 +79,26 @@ int	find_median(int *stack, int size)
 void	optimized_push(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	int	median;
-	int	pushed;
+	int	count_pushes;
 	int	target_pushes;
 	int	rotations;
 
 	median = find_median(stack_a, *size_a);
-	pushed = 0;
+	count_pushes = 0;
 	target_pushes = *size_a - 3;
 	rotations = 0;
-	while (pushed<target_pushes && * size_a> 3)
+	while (count_pushes < target_pushes && *size_a > 3 && rotations < *size_a)
 	{
 		if (stack_a[0] < median)
 		{
 			pb(stack_a, stack_b, size_a, size_b);
-			pushed++;
+			count_pushes++;
 			rotations = 0;
 		}
 		else
 		{
 			ra(stack_a, *size_a);
 			rotations++;
-			if (rotations >= *size_a)
-				break ;
 		}
 	}
 	while (*size_a > 3)
