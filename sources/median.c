@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 23:10:28 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/26 00:28:32 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/26 11:46:59 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	find_median(int *stack, int size)
 	int	median;
 	int	i;
 
-	temp_array = (int *)malloc(sizeof(int) * size);
+	temp_array = malloc(sizeof(int) * size);
 	if (!temp_array)
 		ft_error();
 	i = 0;
