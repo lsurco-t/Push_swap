@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:38:31 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/25 23:57:17 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:38:51 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		get_best_move(stack_a, stack_b, size_a, size_b);
 }
 
-void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b)
+int	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
 	if (*size_a <= 0)
-		ft_error();
+		return (1);
 	else if (*size_a == 1 || is_stack_sorted(stack_a, *size_a))
-		return ;
+		return (0);
 	else if (*size_a == 2 || *size_a == 3)
 		sort_three(stack_a, stack_b, *size_a, *size_b);
 	else if (*size_a == 4 || *size_a == 5)
@@ -113,5 +113,6 @@ void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		final_rotation(stack_a, *size_a);
 	}
 	else
-		ft_error();
+		return (1);
+	return (0);
 }

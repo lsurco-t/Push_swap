@@ -6,7 +6,7 @@
 /*   By: lsurco-t <lsurco-t@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 09:54:14 by lsurco-t          #+#    #+#             */
-/*   Updated: 2025/06/26 00:05:04 by lsurco-t         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:38:55 by lsurco-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	rrb(int *stack_b, int size_b);
 void	rrr(int *stack_a, int *stack_b, int size_a, int size_b);
 
 // Sorting algorithm
-void	algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b);
+int		algorithm(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	sort_three(int *stack_a, int *stack_b, int size_a, int size_b);
 void	sort_five(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	greedy_sort(int *stack_a, int *stack_b, int *size_a, int *size_b);
