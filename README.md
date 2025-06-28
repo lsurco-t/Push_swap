@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Push Swap is a sorting algorithm project that uses two stacks and a limited set of operations to sort integers in ascending order with the minimum number of moves. This project aims to develop a deep understanding of algorithm optimization, data structures, and efficient problem-solving strategies. It is part of the curriculum at Hive Helsinki.
+Push Swap is a sorting algorithm project that uses two stacks and a limited set of operations to sort integers in ascending order with the minimum number of moves. This project aims to develop a deep understanding of algorithm optimization, data structures, and efficient problem-solving strategies.
 
 ## Features
 
