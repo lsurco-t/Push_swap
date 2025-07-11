@@ -1,4 +1,4 @@
-# Push Swap - Hive Helsinki
+# Push Swap
 
 ## Project Overview
 
