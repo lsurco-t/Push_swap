@@ -49,6 +49,5 @@ make
 
 ## Authors
 
-lsurco-t
+**lsurco-t**
 
-Hive Helsinki
